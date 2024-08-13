@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="/page.css">
+    <link rel="stylesheet" href = "/student.css">
+    <title><%= student.firstName  %> <%= student.lastName  %></title>
+</head>
+
+<header>
+
+    <%- include('header'); %>
+
+</header>
+
+<body>
+    
+    <main>
+        <div id = "info">
+            <h1><%= student.firstName  %> <%= student.lastName  %></h1>
+
+            <h2>Date of Birth: <%= student.DOB %></h2>
+
+            <h2>Address</h2><br>
+            <address>
+                <%= student.address %> <br>
+                <%= student.city %> <br>
+                <%= student.country %>
+            
+            </address><br><br>
+
+            <h2>Attendance</h2><br>
+
+            <div style="display:table">
+                <% for (lesson of attendanceArray) { %>
+                    <div style="display:table-row">
+                        <p style="display: table-cell;"><%= lesson.lessonName %></p>
+                        <% if (lesson.present) { %>
+                            ✔️
+                        <% } else { %>
+                            ❌
+                        <% } %>
+                         
+                    </div>
+                <% } %>
+            </div>
+            
+            <div id = "attendance">
+                <i><%= attendance %>%</i>
+            </div>
+            
+            <button type="submit" onclick="deleteStudentRecord()">Delete Student Record</button>  
+                  
+        </div>
+
+        <div id = "image">  
+            <img src = "data:<%= student.image.mimetype %>;base64, <%= student.image.data.toString('base64') %>  " width = "300" alt = "pic" style>
+        </div>
+
+    </main>
+
+    
+    
+    <script>
+        async function deleteStudentRecord(){
+            console.log('hi got here');
+            const res = await fetch(window.location.href, {
+                method:'DELETE',
+            });
+            location.reload();
+        }
+    </script>
+
+</body>

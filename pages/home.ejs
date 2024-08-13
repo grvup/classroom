@@ -1,0 +1,96 @@
+<head>
+    <link rel="stylesheet" href="page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <!-- The Add Class form -->
+
+    <div class = "popupbg">
+            <form class = "add-class-form" action = "/addclass" method = "POST">
+                <h2>Create Class</h2>
+
+                <label for="className">Class Name</label>
+                <input required type = "text" name = "className" id = "className">
+
+                <label for = "subject">Level</label>
+                <input required type = "text" name = "level" id = "level">
+
+                <label for = "startDate">Start Date</label>
+                <input required type = "date" name = "startDate">
+
+                <label for = "endDate">End Date</label>
+                <input required type = "date" name = "endDate">
+
+            
+
+                <div style="display: flex; justify-content: flex-end; margin-top: 15px; gap: 10px;">
+                    <button id="cancel-button" class="popupbg">Cancel</button>
+                    <button type="submit">Create</button>
+                </div>
+
+            </form>
+    </div>
+
+    
+    
+    
+    
+    <%- include('header'); %>
+
+    <main>
+        <h1>Welcome <%= name %></h1>
+
+        <h2>Your classes</h2>
+
+        <div class="classes">
+            
+            <% for (var classes of classes) { %>
+                <div class = "class">
+                    <a href = "class/<%=classes._id %>/"><h3><%=classes.className %></h3></a>
+                    <p>Level: <%=classes.level %></p>
+                    <p>Students: <%= classes.students.length %></p>
+                    
+                </div>
+
+            <% } %>
+            
+                <div id="add-class" class="class add">
+                    <i class="fa fa-plus"></i> Add Class
+                </div>
+            </a>
+        </div> 
+
+
+    </main>
+
+    <script>
+        const addClass = document.querySelector('#add-class');
+        const addClassForm = document.querySelector('.add-class-form');
+        const addStudent = document.querySelector(".add-student");
+        const Student = document.querySelector(".studentSpace");
+
+        // the add class form event 
+        addClass.addEventListener('click', e => {
+            console.log('hi');
+            addClassForm.parentElement.style.display = "flex";
+        });
+
+
+
+        const popupbg = document.querySelectorAll('.popupbg');
+
+        window.addEventListener('click', e=>{
+            popupbg.forEach(popup => {
+                if(e.target == popup){
+                    popup.style.display = "none";
+                }
+            });
+        });
+
+
+
+        
+    </script>
+
+</body>

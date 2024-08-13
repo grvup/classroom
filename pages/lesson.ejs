@@ -1,0 +1,76 @@
+
+
+
+<head>
+    <link rel="stylesheet" href="/page.css">
+    <link rel="stylesheet" href="/lesson.css">
+    <title><%= result.lessonName %></title>
+</head>
+
+
+<body>
+    <%- include('header'); %>
+    <main>
+
+        <h1><%= result.lessonName %></h1>
+        <small><%= result.lessonDate %></small>
+
+        <h2>Lesson Details</h2><br>
+        <i id = "textarea"><%= result.textarea %></i>
+        
+        
+        <% if(result.attendance.length === 0){ %>
+            <%= result.attendance %>
+            <h2>Take Attendance</h2>
+            <form method="post">
+                <div class="students">
+                    <% for (student of students) { %>
+            
+                        <div class="student"><span><%= student.firstName %> <%= student.lastName %></span><input name="<%= student._id %>" type = "checkbox"></div>
+                    
+                    <% } %>
+                </div>
+                <div style="display: flex; justify-content: flex-end;"><button type = "submit">OK</button></div>
+                
+            </form>
+        <% } else { %>
+            <h2>Present</h2>
+
+            <div class = "students">
+                <% for (student of attendance) { %>
+                    
+                    <div class="student"><span><%= student.firstName %> <%= student.lastName %></span></div>
+                
+                <% } %>
+            </div>
+
+            <h2>Absent</h2>
+
+            <div class="students absent">
+                <% for(student of students){ %>
+                    
+                        <% if (!attendance.includes(student)) { %>
+                            <div class="student"><span><%= student.firstName %> <%= student.lastName %></span></div>
+                        <% } %>
+                <% } %>
+            </div>
+        <% } %>
+       
+
+       
+       
+    </main>
+
+    <script>
+        var buttton = document.querySelector("button");
+        var presentStudents = document.querySelector(".present");
+        
+        
+    </script>
+    
+
+
+    
+
+</body>
+

@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body
+{
+    color: var(--primary);
+    font-family: "Poppins", sans-serif;
+}
+
+h1
+{
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content:end;
+}
+
+h2
+{
+    font-weight: 400;
+    color: var(--primary)
+}
+
+.student
+{
+    color: rgb(56, 56, 56);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.students
+{
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+i
+{
+    font-weight: 300;
+}
+
+form{
+    display: flex;
+    padding: 10px 20px;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    border: 0.2px solid rgb(218, 218, 218);
+    border-radius: 10px;
+    box-shadow: rgba(110, 110, 110, 0.2) 0px 7px 9px 0px;
+}
+
+.section-header{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    border-bottom: 2px solid var(--primary);
+}
+.section-header>h2{
+    margin: 10px 0;
+}
+.icon-button{
+    padding: 0;
+    background:none;
+    color: var(--primary);
+    box-shadow: none;
+}
+.icon-button:hover{
+    color: var(--primary);
+    background:none;
+}
+.icon-button:active{
+    transform: none;
+}
+
+details {
+    color: #3f3f3f;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    padding: .5em .5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: .5em;
+}
+
+table{
+    color: #3f3f3f;
+    background-color: white;
+    width: 100%;
+    border: 1px solid #aaa;
+    border-radius:8px;
+    border-collapse: collapse;
+
+}
+tr,th{
+    text-align: center;
+    padding: 0.5em;
+}
+
+thead th{
+    border-bottom: 1px solid #aaa;
+}

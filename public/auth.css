@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    color:rgb(41, 24, 22);
+    background-color: rgba(61, 42, 170, 0.2);
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+form {  
+    font-family: 'Poppins', sans-serif;
+    padding: 30px;
+    max-width: 400px;
+    width: 350px;
+    min-width: 300px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    background-color:#ffffff;
+    gap: 10px;
+    border-radius: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(221, 139, 71, 0.2) 0px 7px 29px 0px;
+}
+
+/* class for fieldset from sign-up page */
+
+.eh{
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column; 
+    gap: 1rem;
+    width: 100%;
+    border: none;
+}
+
+.eh legend{
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+input{
+    padding: 10px;
+    border-radius: 5px;
+    outline:none;
+    border: none;
+    background-color: rgb(235, 235, 235);
+}
+
+.signupTitle{
+    margin-bottom: 1rem;
+}
+
+button{
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: 99em;
+    width: 50%;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(135, 71, 255);
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+.error, #error {
+    color: red;
+}
+
+div {
+    text-align: center;
+}
