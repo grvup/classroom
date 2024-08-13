@@ -193,7 +193,7 @@ app.get("/class/:classid/lesson/:lessonid", authenticate, async (req, res) => {
             let attendance = [];
             let absent = [];
 
-            for (studentid of lessonDoc.attendance) {
+            for (const studentid of lessonDoc.attendance) {
                 if (students.id(studentid))
                     attendance.push(students.id(studentid));
             }
@@ -221,11 +221,15 @@ app.get("/class/:classid/student/:studentid", authenticate, async (req, res) => 
             let counter = 0;
 
             const attendanceArray = lessons.map(lesson => {
-                if (lesson.attendance.includes(studentDoc._id)) {
-                    counter += 1;
-                    return { lessonName: lesson.lessonName, lessonDate: lesson.lessonDate, present: true };
-                } else {
-                    return { lessonName: lesson.lessonName, lessonDate: lesson.lessonDate, present: false };
+                // let id = 
+                if(studentDoc)
+                {
+                    if (lesson.attendance.includes(studentDoc._id)) {
+                        counter += 1;
+                        return { lessonName: lesson.lessonName, lessonDate: lesson.lessonDate, present: true };
+                    } else {
+                        return { lessonName: lesson.lessonName, lessonDate: lesson.lessonDate, present: false };
+                    }
                 }
             });
 
@@ -447,7 +451,7 @@ app.delete('/class/:classid/student/:studentid', authenticate, async (req, res) 
             return;
         }
 
-        studentDoc.remove();
+        classDoc.students.pull({_id: req.params.studentid});
         await classDoc.save();
         console.log('Removed student successfully');
         res.send('Removed student successfully');
